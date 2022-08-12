@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <main id="app" class="fr-p-2w" style="max-width: 50rem">
+      <h1>
+        Reproduction bug DSFR : navigation avec les flèches au sein d'un système
+        d'onglets
+      </h1>
+
+      <p>
+        Il est impossible d'utiliser les touches
+        <kbd title="flèche de gauche">←</kbd> et
+        <kbd title="flèche de droite">→</kbd> pour se déplacer dans le champ au
+        sein de l'onglet 1 ou de changer la valeur du bouton radio dans l'onglet
+        2.
+      </p>
+
+      <h2>Dans système d'onglets</h2>
+
+      <div class="fr-tabs">
+        <ul class="fr-tabs__list" role="tablist" aria-label="Onglets d'exemple">
+          <li role="presentation">
+            <button
+              id="tabpanel-404"
+              class="fr-tabs__tab"
+              tabindex="0"
+              role="tab"
+              aria-selected="true"
+              aria-controls="tabpanel-404-panel"
+            >
+              Onglet 1
+            </button>
+          </li>
+          <li role="presentation">
+            <button
+              id="tabpanel-405"
+              class="fr-tabs__tab"
+              tabindex="-1"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-405-panel"
+            >
+              Onglet 2
+            </button>
+          </li>
+        </ul>
+        <div
+          id="tabpanel-404-panel"
+          class="fr-tabs__panel fr-tabs__panel--selected"
+          role="tabpanel"
+          aria-labelledby="tabpanel-404"
+          tabindex="0"
+        >
+          <p>Exemple avec un champ texte :</p>
+          <div class="fr-input-group">
+            <label class="fr-label" for="input-1">Prénom onglet 1</label>
+            <input class="fr-input" type="text" id="input-1" value="John" />
+          </div>
+        </div>
+        <div
+          id="tabpanel-405-panel"
+          class="fr-tabs__panel"
+          role="tabpanel"
+          aria-labelledby="tabpanel-405"
+          tabindex="0"
+        >
+          <p>Exemple avec des boutons radio :</p>
+          <div class="fr-form-group">
+            <fieldset class="fr-fieldset fr-fieldset--inline">
+              <legend class="fr-fieldset__legend fr-text--regular">
+                Couleur favorite
+              </legend>
+              <div class="fr-fieldset__content">
+                <div class="fr-radio-group">
+                  <input type="radio" id="radio-1" name="radio" />
+                  <label class="fr-label" for="radio-1">Bleu </label>
+                </div>
+                <div class="fr-radio-group">
+                  <input type="radio" id="radio-2" name="radio" />
+                  <label class="fr-label" for="radio-2">Blanc </label>
+                </div>
+                <div class="fr-radio-group">
+                  <input type="radio" id="radio-3" name="radio" />
+                  <label class="fr-label" for="radio-3">Rouge </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="fr-mt-12w">Hors système d'onglets</h2>
+
+      <div class="fr-input-group">
+        <label class="fr-label" for="input-2">Prénom hors onglet</label>
+        <input class="fr-input" type="text" id="input-2" value="John" />
+      </div>
+
+      <div class="fr-form-group">
+        <fieldset class="fr-fieldset fr-fieldset--inline">
+          <legend class="fr-fieldset__legend fr-text--regular">
+            Couleur favorite
+          </legend>
+          <div class="fr-fieldset__content">
+            <div class="fr-radio-group">
+              <input type="radio" id="radio-4" name="radio-2" />
+              <label class="fr-label" for="radio-4">Bleu</label>
+            </div>
+            <div class="fr-radio-group">
+              <input type="radio" id="radio-5" name="radio-2" />
+              <label class="fr-label" for="radio-5">Blanc</label>
+            </div>
+            <div class="fr-radio-group">
+              <input type="radio" id="radio-6" name="radio-2" />
+              <label class="fr-label" for="radio-6">Rouge</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
